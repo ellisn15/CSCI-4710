@@ -16,9 +16,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script>
+        function showDiv() {
+            document.getElementById('button1').style.display = "none";
+            document.getElementById('button2').style.display = "block";
+        }
+    </script>
 
     <link rel="stylesheet" href="style.css">
     <title>Verify</title>
+
 </head>
 
 
@@ -33,7 +40,8 @@
                     <a class="nav-link" href="#"> <strong>UPLOAD ></strong> </a>
                 </li>
                 <li class="nav-item bg-success active">
-                    <a class="nav-link text-white" href="#"><strong>VERIFY ></strong><span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-white" href="#"><strong>VERIFY ></strong><span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" style="background-color: #e3f2fd;">
                     <a class="nav-link" href="#"> <strong>CONFIGURE ></strong></a>
@@ -48,11 +56,195 @@
         </span>
     </nav>
     </br>
-
-    <div>
-        
+    <div id="uploaded" class="row pad rounded">
+        <div class="container rounded padding table-responsive" style="background-color: #e3f2fd;">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>DataValue</th>
+                            <th>LocalDateTime</th>
+                            <th>UTCOffset</th>
+                            <th>DateTimeUTC</th>
+                            <th>SiteCode</th>
+                            <th>Variable TYPE</th>
+                            <th>MethodCode</th>
+                            <th>SourceCode</th>
+                            <th>Quality</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
+    <br />
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-9 align-items-center rounded" style="background-color: #e3f2fd;">
+                <br />
+                <div class="container rounded align-items-center">
+                    <div class="row rounded align-items-center">
+                        <div class="col-5 rounded container align-items-center">
+                            <p>Detected Column Names</p>
+                            <div class="align-content-center rounded">
+                                <fieldset>
+                                    <select class="select" name="selectfrom" id="select-from" multiple size="10"
+                                        style="width: 250px; height: 200px;">
+                                        <option value="1">Item 1</option>
+                                        <option value="2">Item 2</option>
+                                        <option value="3">Item 3</option>
+                                        <option value="4">Item 4</option>
+                                        <option value="5">Item 5</option>
+                                        <option value="6">Item 6</option>
+                                        <option value="7">Item 7</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <a class="btn bg-light" href="JavaScript:void(0);" id="btn-add">&raquo;</a>
+                            <br /><br />
+                            <a class="btn bg-light" href="JavaScript:void(0);" id="btn-remove">&laquo;</a>
+                        </div>
+                        <div class="col-5 rounded">
+                            <p>&nbsp;&nbsp;&nbsp;Data Columns</p>
+                            <form class="pad rounded">
+                                <fieldset>
+                                    <select name="selectto" id="select-to" multiple size="10"
+                                        style="width: 250px; height: 200px;"></select>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <div>
+                <br />
+            </div>
+            <div class="col-3 align-items-center">
+                <div class="container rounded" style="background-color: #e3f2fd;">
+                    <div class="row rounded justify-content-center text-center">
+                        <fieldset class="col rounded">
+                            <br />
+                            <p>Select DateTimeColumn</p>
+                            <select name="selectTime" id="select-time" multiple size="5"
+                                style="height: 125px; width: 200px;">
+                                <option value="1" onClick="showDiv();">Item 1</option>
+                                <option value="2" onClick="showDiv();">Item 2</option>
+                                <option value="3" onClick="showDiv();">Item 3</option>
+                                <option value="4" onClick="showDiv();">Item 4</option>
+                                <option value="5" onClick="showDiv();">Item 5</option>
+                                <option value="6" onClick="showDiv();">Item 6</option>
+                                <option value="7" onClick="showDiv();">Item 7</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="row text-center">
+                        <br />
+                    </div>
+                    <div class="row bg-white">
+                        <div class="btn col rounded" id="button1" style="background-color: #d9d9db; margin-top: 20px;">
+                            <h4 class="text-muted font-weight-light">Continue ></h4>
+                        </div>
+                        <div class="btn col rounded bg-success" id="button2" style="display: none; margin-top: 20px;">
+                            <h4 class="text-white font-weight-light">Continue ></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
 </body>
+<script>
+    $(document).ready(function () {
+
+        $('#btn-add').click(function () {
+            $('#select-from option:selected').each(function () {
+                $('#select-to').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>");
+                $('select-time').remove();
+                $(this).remove();
+            });
+        });
+
+        $('#btn-remove').click(function () {
+            $('#select-to option:selected').each(function () {
+                $('#select-from').append("<option value='" + $(this).val() + "'>" + $(this).text() + "</option>");
+                $(this).remove();
+            });
+        });
+
+    });
+
+</script>
 
 </html>
