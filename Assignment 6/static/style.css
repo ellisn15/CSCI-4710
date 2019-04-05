@@ -1,0 +1,60 @@
+
+
+.heading1{
+    color: blue;
+}
+
+.heading2{
+    color: green;
+}
+
+.image {
+    height: 150px;
+    width: 150px;
+}
+
+.image2 {
+    height: 75px;
+    width: 75px;
+}
+
+.rounded {
+    border-radius: 50px;
+}
+
+.pad {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.padding {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.padded {
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.prog_bar {
+    height: 30px;
+    border-radius: 50px;
+}
+
+.meta-data {
+    border: 1px;
+}
+.select {
+    font: inherit;
+}
+
+.option {
+    line-height: 25px;
+}
+
+.table-text {
+    font-size: 10px;
+}

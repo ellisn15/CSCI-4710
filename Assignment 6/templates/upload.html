@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/dropzone.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
+    <script>
+        function drop(event){
+            document.getElementById('fileInput').click();
+        }
+    </script>
+</head>
+
+
+<body>
+    <br />
+    <h2><span class="heading1">&nbsp; &nbsp; HYDRO</span><span class="heading2">QUALITY</span></h2>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item bg-success active">
+                    <a class="nav-link text-white" href="#"> <strong>UPLOAD ></strong> <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="#"><strong>VERIFY ></strong></a>
+                </li>
+                <li class="nav-item" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="#"> <strong>CONFIGURE ></strong></a>
+                </li>
+                <li class="nav-item" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="#"><strong>RUN TESTS ></strong></a>
+                </li>
+                <li class="nav-item" style="background-color: #e3f2fd;">
+                    <a class="nav-link" href="#"><strong>REVIEW ></strong></a>
+                </li>
+            </ul>
+        </span>
+    </nav>
+    </br>
+
+    <div>
+        <div class="text-center pad">
+            <h4 class="text-muted">Welcome to the CUAHSI HYDROQUALITY client</h4>
+            <p class="text-muted small">Lorem ipsum dolor sit amet, consectetur adipicing elit, Ut iaculis, lectus at
+                aliquam
+                varius, eros augue
+                consequat augue, rhoncus imperdiet leo eros in tortor. Curabitur vestibulum vestibulum imperdiet. Proin
+                facilisis mi et metus mattis, et dapibus ante molestie. Pellentesque consectetur dolor sed ex eleifend
+                trisitique. Pellentesque nec risus ex. Aliquam tincidunt aliquet est eu ullamcorper. Lorem ipsum dolor
+                sit amet, consectetur adipicing elit. Vestibulum bibendum feugiat lorem vel tempor. Curabitur at enim
+                portitor, euismod risus et, gravida magna. Maecenas blandit maximus tortor, at blandit velit placerate
+                quis. Cras sed egastas orci. Nullam sed porta mauris, vel aliquam felis.</p>
+        </div>
+        <div class="container">
+            <form method="post" action="/api/post_csv" class="dropzone dz-clickable rounded" id="CSVDropZone"
+                enctype=multipart/form-data style="background-color: #f2edb5;" ondrop="drop(event);">
+                <div class="dz-message d-flex flex-column align-items-center justify-content-center">
+                    <img class="image" src="/static/upload.png" alt="">
+                    <br />
+                    <p>
+                        <h5 class="text-muted font-weight-light">DRAG AND DROP A .CSV FILE INTO THIS SQUARE</h5>
+                    </p>
+                </div>
+            </form>
+            <br />
+            <div>&nbsp;</div>
+            <div class="container">
+                <div class=" text-center">
+                    <form class="row" method="post" action="/api/post_csv" enctype=multipart/form-data> <div
+                        class="btn col rounded align-items-center" style="background-color: #f2edb5;"
+                        onclick="document.getElementById('fileInput').click();">
+                        <h5 class="text-muted font-weight-light"><img class="image2" src="/static/folder.png" alt="">
+                            &nbsp; &nbsp; &nbsp; SELECT A .CSV FILE
+                        </h5>
+                        <input id="fileInput" type="file" name="file" style="display: none;" />
+                </div>
+                <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+                <div class="btn col rounded bg-success" id="button1"
+                    onclick="document.getElementById('submitButton').click();">
+                    <br />
+                    <h4 class="text-white font-weight-light">Continue ></h4>
+                </div>
+                <div class="btn col rounded bg-success" id="button2" style="display: none;"
+                    onclick="document.getElementById('submitButton').click();">
+                    <br />
+                    <h4 class="text-white font-weight-light">Continue ></h4>
+                    <input id="submitButton" type="submit" style="display: none">
+                </div>
+                </form>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+    </div>
+
+</body>
+
+</html>
