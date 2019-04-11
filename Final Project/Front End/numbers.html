@@ -1,0 +1,122 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Sales Numbers</title>
+
+    <script>
+        function currentDate() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            console.log(today);
+        }
+        function getSevenDays() {
+            var days = 7;
+            var last = new Date(today.getTime() - (days * 24 * 60 * 60 * 1000));
+            var sevenDays = last.getFullYear() + '-' + last.getMonth()+1 + '-' + last.getDate();
+        }
+    </script>
+</head>
+
+<!--
+    ON EACH BUTTON CLICK WE WILL LOAD THE DATA FOR THAT TIME PERIOD USING THE QUERIES BELOW:
+
+    TODAY: //Be sure to plug today's date in.
+
+    FOR TOTAL SALES: 
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type = 'sale' AND pdate = today;
+
+    FOR TOTAL RETURNS:
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type='return' AND pdate = today;
+
+
+    W-T-D: //Be sure to plug today and sevenDays in.
+
+    FOR TOTAL SALES:
+    SELECT SUM(subtotal) FROM invoice WHERE (pdate BETWEEN sevenDays AND today) AND inv_type = 'sale';
+
+    FOR TOTAL RETURNS:
+    SELECT SUM(subtotal) FROM invoice WHERE (pdate BETWEEN sevenDays AND today) AND inv_type = 'return';
+
+
+    M-T-D: //Be sure to plug in curMonth (today.getMonth()+1)
+
+    FOR TOTAL SALES:
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type = 'sale' AND EXTRACT(MONTH FROM pdate) = curMonth;
+
+    FOR TOTAL RETURNS:
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type = 'returns' AND EXTRACT(MONTH FROM pdate) = curMonth;
+
+
+    Y-T-D: //Be sure to plug in curYear (today.getFullYear())
+
+    FOR TOTAL SALES:
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type = 'sale' AND EXTRACT(YEAR FROM pdate) = curYear;
+
+    FOR TOTAL RETURNS:
+    SELECT SUM(subtotal) FROM invoice WHERE inv_type = 'returns' AND EXTRACT(YEAR FROM pdate) = curYear;
+-->
+
+<body class="body" onload="currentDate();">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <br />
+    <div class="container">
+        <h1 class="text-center">Sales Numbers</h1>
+        <br /> <br />
+        <div class="row text-center">
+            <div class="col text-center">
+                <button class="btn btn-dark btn-lg" type="button">Today</button>
+                <!--ON CLICK LOAD NUMBERS-->
+            </div>
+            <div class="col text-center">
+                <button class="btn btn-dark btn-lg" type="button">W-T-D</button>
+                <!--ON CLICK LOAD NUMBERS-->
+            </div>
+            <div class="col text-center">
+                <button class="btn btn-dark btn-lg" type="button">M-T-D</button>
+                <!--ON CLICK LOAD NUMBERS-->
+            </div>
+            <div class="col text-center">
+                <button class="btn btn-dark btn-lg" type="button">Y-T-D</button>
+                <!--ON CLICK LOAD NUMBERS-->
+            </div>
+        </div>
+        <br /><br /><br /> <br />
+        <div class="container">
+            <div class="row text-center justify-content-center">
+                <h3>Total Sales: $</h3>
+                <!--TOTAL SALES GOES HERE-->
+            </div>
+            <div class="row text-center justify-content-center">
+                <h3>Total Returns: $</h3>
+                <!--TOTAL RETURNS GOES HERE-->
+            </div>
+            <br />
+            <div class="row text-center justify-content-center">
+                <h2><strong>Total Revenue: $</strong></h2>
+                <!--TOTAL REVENUE GOES HERE-->
+            </div>
+        </div>
+    </div>
+    <br /><br />
+</body>

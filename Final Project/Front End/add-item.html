@@ -1,0 +1,126 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Add Item</title>
+</head>
+
+<!--
+    NEED TO RUN THE FOLLOWING SQL COMMANDS ON SUBMIT AND THEN PUSH THE HOME PAGE:
+    
+    INSERT INTO PRODUCT (isbn, author, title, genre, publisher, pub_year) 
+    VALUES (
+        document.getElementById('isbn').value, 
+        document.getElementById('author').value,
+        document.getElementById('title').value,
+        document.getElementById('genre').value,
+        document.getElementById('publisher').value,
+        document.getElementById('pub_year').value
+        );
+
+    INSERT INTO CARRIES (snum, isbn, qty, store_cost, retail_price, current_price, supplier_name, min_order) 
+    VALUES (75,
+        document.getElementById('isbn').value, 
+        document.getElementById('qty').value,
+        document.getElementById('store_cost').value,
+        document.getElementById('retail_price').value,
+        document.getElementById('current_price').value,
+        document.getElementById('supplier_name').value,
+        document.getElementById('min_order').value
+        );
+
+-->
+
+<body class="body">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <br />
+    <div class="container">
+        <form>
+            <div class="text-center align-items-center justify-content-center">
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">ISBN: </h4>
+                    <input type="text" id="isbn" class="col-5 form-control" placeholder="ISBN-13">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Author: </h4>
+                    <input type="text" id="author" class="col-5 form-control" placeholder="Author">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Title: </h4>
+                    <input type="text" id="title" class="col-5 form-control" placeholder="Title">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Genre: </h4>
+                    <input type="text" id="genre" class="col-5 form-control" placeholder="Genre">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Publisher: </h4>
+                    <input type="text" id="publisher" class="col-5 form-control" placeholder="Name">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Publication Year: </h4>
+                    <input type="text" id="pub_year" class="col-5 form-control" placeholder="Year">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">QTY: </h4>
+                    <input type="text" id="qty" class="col-5 form-control" placeholder="QTY">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Store Cost: </h4>
+                    <input type="text" id="store_cost" class="col-5 form-control" placeholder="Cost $">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Retail Price: </h4>
+                    <input type="text" id="retail_price" class="col-5 form-control" placeholder="Price $">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Current Price: </h4>
+                    <input type="text" id="current_price" class="col-5 form-control" placeholder="Price $">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Supplier: </h4>
+                    <input type="text" id="supplier_name" class="col-5 form-control" placeholder="Name">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 col-5 text-right">Minimum Order QTY: </h4>
+                    <input type="text" id="min_order" class="col-5 form-control" placeholder="QTY">
+                </div>
+            </div>
+            <br />
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-lg btn-dark mb-2">Submit</button>
+                <!--ON SUBMIT GO HOME-->
+            </div>
+        </form>
+        <br />
+    </div>
+    <br /><br />
+</body>

@@ -1,0 +1,89 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Sales</title>
+</head>
+
+<!--
+QUERY: ADD ITEM
+
+SELECT product.isbn, title, current_price
+FROM product INNER JOIN carries ON carries.isbn = product.isbn
+WHERE product.isbn = {isbn};
+
+-->
+
+<body class="body">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div class="col-sm-6">
+                <form class="form-inline md-form mr-auto justify-content-center ">
+                    <input class="form-control mr-2 mt-4" type="search" placeholder="ISBN Number" aria-label="Search"
+                        id="itemLookup" />
+                    <button class="btn btn-dark btn-rounded mt-4" id="searchButton" type="submit">Add Item</button>
+                    <!--On click add item to table below-->
+                </form>
+            </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col">
+                <table class="table table-striped table-responsive text-center">
+                    <thead class="thead-dark">
+                        <tr class="text-center">
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td>#</th>
+                            <td>Name</td>
+                            <td>$</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row justify-content-end">
+            <h4><strong>SubTotal:</strong> $</h4> <br />
+            <!--Sum the table price row-->
+        </div>
+        <br /><br />
+        <div class="row justify-content-end">
+            <a class="btn btn-dark btn-lg" href="checkout.html">Checkout</a>
+        </div>
+    </div>
+    <script>
+        var input = document.getElementById('itemLookup');
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("searchButton").click();
+            }
+        });
+    </script>
+    <br /><br />
+</body>

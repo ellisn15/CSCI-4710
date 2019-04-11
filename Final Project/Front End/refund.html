@@ -1,0 +1,94 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Process Refund</title>
+
+    <script>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+        function cashClick() {
+            var amount = document.getElementById('amount').value;
+            window.alert("Refund amount is: $" + amount);
+        }
+    </script>
+</head>
+
+<!--
+   DECIDE HOW TO GIVE IT A TRANSACTION NUMBER
+
+    QUERY: POST TO TRANSACTION AND INVOICE
+
+    DO FOR EACH ITEM IN THE CART: (transaction only)
+
+   INSERT INTO TRANSACTION (isbn, invoice_num) VALUES ({query_isbn}, {query_invoiceNum});
+
+   INSERT INTO INVOICE (invoice_num, inv_type, subtotal, tax, total, pdate) VALUES ({query_invoiceNum}, 'return', {query_subtotal}, {query_tax}, {query_total}, {Current Date});
+
+    
+-->
+
+<body class="body">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <br />
+    <div class="container">
+        <div class="row ">
+            <div class="col-sm-6">
+                <div class="row justify-content-end">
+                    <h2><strong>SubTotal:</strong> $ -</h2> <br />
+                    <!--Sum the table price row-->
+                </div>
+                <div class="row justify-content-end">
+                    <h2><strong>Tax:</strong> $ -</h2><br />
+                    <!--Multiply subtotal by 0.07-->
+                </div>
+                <div class="row justify-content-end">
+                    <h2><strong>Total:</strong> $ -</h2> <br />
+                    <!--Add tax to total-->
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-sm-5 text-right">
+                <button class="btn btn-dark btn-lg" onclick="toggle_visibility('cash')">Cash</button>
+            </div>
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-dark btn-lg">Store Credit</button>
+            </div>
+            <div class="col-sm-5 text-left">
+                <button class="btn btn-dark btn-lg">Card</button>
+            </div>
+        </div>
+        <div class="row form-group text-center form-inline justify-content-center" style="display: none;" id="cash">
+            <br />
+            <h4>Refund in amount: $ </h4><br />
+            <!--PUT THE REFUND AMOUNT HERE id="amount"-->
+            <button class="btn btn-dark btn-lg" type="submit" onclick="cashClick();">Process</button>
+        </div>
+    </div>
+    <br /><br />
+</body>

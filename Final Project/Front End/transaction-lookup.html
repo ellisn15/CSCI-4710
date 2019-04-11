@@ -1,0 +1,68 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Transaction Lookup</title>
+</head>
+
+<body class="body">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <br />
+    <h4 class="text-center">Fill out one or more fields below</h4>
+    <br />
+    <div class="container text-center justify-content-center">
+        <form>
+            <div class="text-center align-item-center justify-content-center">
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 text-right col-5">ISBN: </h4>
+                    <input type="text" id="isbn" class="col-5 form-control" placeholder="Enter ISBN">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 text-right col-5">Transaction #: </h4>
+                    <input type="text" id="transaction-number" class="col-5 form-control"
+                        placeholder="Enter Transaction #">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 text-right col-5">Transaction Type: </h4>
+                    <select class="form-control col-5" id="trans-type">
+                        <option selected>Select Type</option>
+                        <option>Sale</option>
+                        <option>Return</option>
+                    </select>
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 text-right col-5">Amount: $</h4>
+                    <input type="text" id="amount" class="col-5 form-control" placeholder="Enter Amount">
+                </div>
+                <br />
+                <div class="row form-group form-inline">
+                    <h4 class="mr-4 text-right col-5">Date:</h4>
+                    <input type="text" id="date" class="col-5 form-control" placeholder="Enter Date YYYY/MM/DD">
+                </div>
+            </div>
+            <br />
+            <a role="submit" class="btn btn-lg text-white btn-dark mb-2" onclick="location.href='results.html';">Submit</a>
+        </form>
+    </div>
+    <br /><br />
+</body>

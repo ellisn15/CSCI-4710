@@ -1,0 +1,101 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Item Search</title>
+</head>
+
+<!--
+    QUERY: Search
+
+    SELECT title, author, genre, product.isbn, qty, current_price
+    FROM product INNER JOIN carries ON carries.isbn = product.isbn
+    WHERE title LIKE {query} OR author LIKE {query} OR genre LIKE {query} OR product.isbn = {query};
+    
+-->
+
+<body class="body">
+    <div class="text-center justify-content-center bg-dark">
+        <br />
+        <h1><a class="text-white" onclick="location.href='home.html';" style="cursor: pointer;">Potter's Books</a></h1>
+        <h5 class="text-muted">101 Johnson St, Brooklyn NY</h5>
+        <br />
+    </div>
+    <br />
+    <div>
+        <div>
+            <form class="form-row lg-form mr-auto align-items-center justify-content-center">
+                <input class="col-6 form-control mr-2" type="search"
+                    placeholder="Search for a book, author, or genre..." aria-label="Search" id="itemSearch" />
+                <a class="btn btn-dark btn-rounded  my-0 " role="search" id="searchButton" href="item-search.html">Search</a>
+            </form>
+        </div>
+        <br />
+        <div class="container">
+            <div class="card-deck d-flex justify-content-center">
+                <div class="card mb-2 bg-light text-center justify-content-center">
+                    <div class="card-body text-center justify-content-center">
+                        <h5 class="card-title">(title here)</h5>
+                        <p class="card-subtitle">
+                            (author here) <br />
+                        </p>
+                        <div class="row justify-content-center">
+                            <div class="col text-right">
+                                <h6>Genre: </h6>
+                            </div>
+                            <div class="col text-left">
+                                <h6>{GENRE HERE}</h6>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col text-right">
+                                <h6>ISBN: </h6>
+                            </div>
+                            <div class="col text-left">
+                                <h6>{ISBN HERE}</h6>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col text-right">
+                                <h6>QTY: </h6>
+                            </div>
+                            <div class="col text-left">
+                                <h6>{QTY HERE}</h6>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col text-right">
+                                <h6>Price: $</h6>
+                            </div>
+                            <div class="col text-left">
+                                <h6>{Price HERE}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100  mt-4"></div>
+            </div>
+        </div>
+        <script>
+            var input = document.getElementById('itemSearch');
+            input.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("searchButton").click();
+                }
+            });
+        </script>
+        <br /><br />
+</body>
